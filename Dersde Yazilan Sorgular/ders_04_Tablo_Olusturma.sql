@@ -54,7 +54,7 @@
 	buyuk database’lerde farkli schema’lar olacagindan, 
 	bizim hangi schema’yi kullanacagimizi belirtmemiz onemlidir.
 */
-
+USE SqlDersleri;
 
 /*
 ===============================================
@@ -96,7 +96,13 @@ CREATE TABLE tablo_adi
    =========================================================
  */
  
-
+ CREATE TABLE kitaplar (
+	kitap_id INT, 
+    kitap_adi VARCHAR(50), 
+    yazar_adi VARCHAR(50), 
+    yayin_yili INT, 
+    kategori VARCHAR(50)
+ );
 
 
 
@@ -117,7 +123,14 @@ CREATE TABLE tablo_adi
    =========================================================
  */
 
+CREATE TABLE tedarikciler(
 
+	tedarikci_id CHAR(4), 
+    tedarikci_ismi VARCHAR(50), 
+    tedarikci_adres VARCHAR(50), 
+    ulasim_tarihi DATE
+
+);
 
 
 
@@ -134,7 +147,9 @@ CREATE TABLE tablo_adi
    FROM kaynak table
  */
 
-
+CREATE TABLE tedarikciler_id_name
+AS SELECT tedarikci_id, tedarikci_ismi
+FROM tedarikciler;
 
  /*
  ===============================================
@@ -168,15 +183,22 @@ CREATE TABLE tablo_adi
  */
  
 
-
+CREATE TABLE personel(
+	personel_id INT, 
+    adi VARCHAR(50), 
+    soyadi VARCHAR(50), 
+    dogum_tarihi DATE,
+    pozisyon VARCHAR(50),
+    maas INT
+);
 
  -- Personel tablosunu görüntüleyin.
-
+ SELECT * FROM personel;
 
 
 
  -- Personel tablosundaki soyadi ve personel_id sutunlarini görüntüleyin.
-
+ SELECT soyadi, personel_id FROM personel;
  
 
 
